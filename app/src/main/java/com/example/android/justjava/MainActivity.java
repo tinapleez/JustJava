@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
      * This method displayQuantitys the given quantity value on the screen.
      */
     private void displayQuantity(int quantity) {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + quantity);
     }
 
