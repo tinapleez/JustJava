@@ -18,7 +18,7 @@ import android.widget.TextView;
 import java.text.NumberFormat;
 
 /**
- * This app displayQuantitys an order form to order coffee.
+ * This app displayQuantity an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -63,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
      * @return total price
      */
     private int calculatePrice() {
-        int price = quantity * 5;
-        return price;
+        return quantity * 5;
     }
 
     /**
@@ -72,28 +71,33 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         int price = calculatePrice();
-        String priceMessage = "Total: $" + (price);
-        priceMessage = priceMessage + "\nThank you!";
+        createOrderSummary(price);
+    }
+
+    private void createOrderSummary(int price) {
+        String priceMessage = "Name: " + "Kaptain Kunal";
+        priceMessage += "\nQuantity: " + quantity;
+        priceMessage += "\nTotal: $" + (price);
+        priceMessage += "\nThank you!";
         displayQuantityMessage(priceMessage);
-        calculatePrice();
     }
 
     /**
-     * This method displayQuantitys the given quantity value on the screen.
+     * This method displayQuantity the given quantity value on the screen.
      */
     private void displayQuantity(int quantity) {
         quantityTextView.setText("" + quantity);
     }
 
     /**
-     * This method displayQuantitys the given price on the screen.
+     * This method displayQuantity the given price on the screen.
      */
     private void displayQuantityPrice(int number) {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
     /**
-     * This method displayQuantitys the given text on the screen.
+     * This method displayQuantity the given text on the screen.
      */
     private void displayQuantityMessage(String message) {
         priceTextView.setText(message);
