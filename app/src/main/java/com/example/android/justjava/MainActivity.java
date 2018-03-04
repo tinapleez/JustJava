@@ -90,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
      * This method displayQuantitys the given price on the screen.
      */
     private void displayQuantityPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
@@ -98,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
      * This method displayQuantitys the given text on the screen.
      */
     private void displayQuantityMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(message);
     }
 }
