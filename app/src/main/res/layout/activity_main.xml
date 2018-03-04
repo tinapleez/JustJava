@@ -70,7 +70,7 @@
         android:layout_marginBottom="@dimen/text_marginbottom"
         android:layout_marginTop="@dimen/text_margintop"
         android:gravity="center_horizontal"
-        android:text="$ @string/text_price"
+        android:text="@string/text_price"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_total_price" />
 
