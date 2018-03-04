@@ -1,14 +1,4 @@
-/**
- * IMPORTANT: Make sure you are using the correct package name. 
- * This example uses the package name:
- * package com.example.android.justjava
- * If you get an error when copying this code into Android studio, update it to match teh package name found
- * in the project's AndroidManifest.xml file.
- **/
-
 package com.example.android.justjava;
-
-
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,11 +13,11 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     private TextView quantityTextView;
-    private TextView priceTextView;
+    private TextView orderSummaryTextView;
 
     private void assignViews() {
         quantityTextView = findViewById(R.id.quantity_text_view);
-        priceTextView = findViewById(R.id.price_text_view);
+        orderSummaryTextView = findViewById(R.id.order_summary_text_view);
     }
 
 
@@ -71,15 +61,20 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         int price = calculatePrice();
-        createOrderSummary(price);
+        displayMessage(createOrderSummary(price));
     }
 
-    private void createOrderSummary(int price) {
+    /** This method creates an order summary
+     *
+     * @param price of the order
+     * @return text summary
+     */
+    private String createOrderSummary(int price) {
         String priceMessage = "Name: " + "Kaptain Kunal";
         priceMessage += "\nQuantity: " + quantity;
         priceMessage += "\nTotal: $" + (price);
         priceMessage += "\nThank you!";
-        displayQuantityMessage(priceMessage);
+        return priceMessage;
     }
 
     /**
@@ -90,16 +85,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method displayQuantity the given price on the screen.
-     */
-    private void displayQuantityPrice(int number) {
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
-
-    /**
      * This method displayQuantity the given text on the screen.
      */
-    private void displayQuantityMessage(String message) {
-        priceTextView.setText(message);
+    private void displayMessage(String message) {
+        orderSummaryTextView.setText(message);
     }
 }

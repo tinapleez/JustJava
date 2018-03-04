@@ -3,7 +3,7 @@
     <string name="text_quantity">Quantity</string>
     <string name="text_number">0</string>
     <string name="button_text">Order</string>
-    <string name="text_priceheader">Price</string>
+    <string name="text_order_summary">ORDER SUMMARY</string>
     <string name="text_price">$0</string>
     <string name="button_text_plus">+</string>
     <string name="button_text_minus">-</string>
