@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/coffee"
-    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.example.android.justjava.MainActivity">
 
@@ -13,7 +16,26 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/text_marginbottom"
         android:layout_marginTop="@dimen/text_margintop"
-        android:gravity="center_horizontal"
+        android:text="@string/text_toppings"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_toppings_size" />
+
+    <CheckBox
+        android:id="@+id/whipped_cream_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/checkbox_paddingleft"
+        android:text="@string/notify_me"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/text_marginbottom"
+        android:layout_marginTop="@dimen/text_margintop"
         android:text="@string/text_quantity"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
@@ -22,7 +44,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
@@ -59,7 +80,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/text_marginbottom"
         android:layout_marginTop="@dimen/text_margintop2"
-        android:gravity="center_horizontal"
         android:text="@string/text_order_summary"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
@@ -73,3 +93,4 @@
         android:text="@string/button_text" />
 
 </LinearLayout>
+</ScrollView>

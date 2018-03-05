@@ -2,7 +2,9 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -14,26 +16,26 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView quantityTextView;
     private TextView orderSummaryTextView;
-
-    private void assignViews() {
-        quantityTextView = findViewById(R.id.quantity_text_view);
-        orderSummaryTextView = findViewById(R.id.order_summary_text_view);
-    }
-
+    private CheckBox whippedCreamCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        assignViews();
+        whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
     }
 
-    /** This is the declaration of the global variable to make the quantity picker work */
+    /**
+     * This is the declaration of the global variable to make the quantity picker work
+     */
     int quantity = 0;
 
-    /**
-     * This method is called when the plus button is clicked.
-     */
+
+        /**
+         * This method is called when the plus button is clicked.
+         */
     public void increment(View view) {
         quantity = quantity + 1;
         displayQuantity(quantity);
@@ -60,17 +62,22 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+
+        boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price));
+        displayMessage(createOrderSummary(price, hasWhippedCream));
     }
 
-    /** This method creates an order summary
+    /**
+     * This method creates an order summary
      *
      * @param price of the order
+     * @param addWhippedCream is whether person wants whipped cream
      * @return text summary
      */
-    private String createOrderSummary(int price) {
+    private String createOrderSummary(int price, boolean addWhippedCream) {
         String priceMessage = "Name: " + "Kaptain Kunal";
+        priceMessage += "\nAdd Whipped Cream? " + addWhippedCream;
         priceMessage += "\nQuantity: " + quantity;
         priceMessage += "\nTotal: $" + (price);
         priceMessage += "\nThank you!";
