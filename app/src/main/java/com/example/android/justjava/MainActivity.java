@@ -17,12 +17,14 @@ public class MainActivity extends AppCompatActivity {
     private TextView quantityTextView;
     private TextView orderSummaryTextView;
     private CheckBox whippedCreamCheckBox;
+    private CheckBox chocolateCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        chocolateCheckBox = findViewById(R.id.chocolate_checkbox);
         quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
     }
@@ -62,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
+        boolean hasChocolate = chocolateCheckBox.isChecked();
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price, hasWhippedCream));
+        displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate));
     }
 
     /**
@@ -75,9 +77,10 @@ public class MainActivity extends AppCompatActivity {
      * @param addWhippedCream is whether person wants whipped cream
      * @return text summary
      */
-    private String createOrderSummary(int price, boolean addWhippedCream) {
+    private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate) {
         String priceMessage = "Name: " + "Kaptain Kunal";
         priceMessage += "\nAdd Whipped Cream? " + addWhippedCream;
+        priceMessage += "\nAdd Chocolate? " + addChocolate;
         priceMessage += "\nQuantity: " + quantity;
         priceMessage += "\nTotal: $" + (price);
         priceMessage += "\nThank you!";
