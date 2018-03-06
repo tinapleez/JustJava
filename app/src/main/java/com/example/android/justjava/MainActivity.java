@@ -109,16 +109,16 @@ public class MainActivity extends AppCompatActivity {
      * @return text summary
      */
     private String createOrderSummary(String name, int price, boolean addWhippedCream, boolean addChocolate) {
-        String priceMessage = String.format(getString(R.string.name), name);
-        priceMessage += System.getProperty("line.separator");
-        priceMessage += String.format(getString(R.string.whipped_cream), addWhippedCream);
-        priceMessage += System.getProperty("line.separator");
-        priceMessage += String.format(getString(R.string.chocolate), addChocolate);
-        priceMessage += System.getProperty("line.separator");
-        priceMessage += String.format(getString(R.string.quantity), quantity);
-        priceMessage += System.getProperty("line.separator");
+        String priceMessage = String.format(getString(R.string.order_summary_name), name);
+
+        priceMessage += String.format(getString(R.string.order_summary_whipped_cream), addWhippedCream);
+
+        priceMessage += String.format(getString(R.string.order_summary_chocolate), addChocolate);
+
+        priceMessage += String.format(getString(R.string.order_summary_quantity), quantity);
+
         priceMessage += String.format(getString(R.string.order_summary_price), price);
-        priceMessage += System.getProperty("line.separator");
+
         priceMessage += getString(R.string.thank_you);
         return priceMessage;
     }
