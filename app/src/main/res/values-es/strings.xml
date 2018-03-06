@@ -58,7 +58,7 @@
       Total price for the order summary. It will be shown in the format of
       "Total: $10" where $10 is the price. [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_price">Total: <xliff:g id="price" example="$10">%d%n</xliff:g></string>
+    <string name="order_summary_price">Total: <xliff:g id="price" example="$10">%s%n</xliff:g></string>
 
     <!-- Thank you message for the order summary. [CHAR LIMIT=NONE] -->
     <string name="thank_you">¡Gracias!</string>
