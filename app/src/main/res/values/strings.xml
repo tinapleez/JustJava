@@ -10,4 +10,5 @@
     <string name="checkbox_whipped_cream">Whipped Cream</string>
     <string name="text_toppings">toppings</string>
     <string name="checkbox_chocolate">Chocolate</string>
+    <string name="edit_name">Name</string>
 </resources>

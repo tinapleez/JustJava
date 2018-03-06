@@ -12,6 +12,17 @@
         android:orientation="vertical"
         tools:context="com.example.android.justjava.MainActivity">
 
+        <EditText
+            android:id="@+id/name_field"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="@string/edit_name"
+            android:inputType="textCapWords"
+            android:textColor="@android:color/white"
+            android:shadowColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
