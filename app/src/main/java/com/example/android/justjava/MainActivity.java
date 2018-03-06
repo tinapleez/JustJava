@@ -30,17 +30,18 @@ public class MainActivity extends AppCompatActivity {
         chocolateCheckBox = findViewById(R.id.chocolate_checkbox);
         quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+
     }
 
     /**
-     * This is the declaration of the global variable to make the quantity picker work
+     * This is the declaration of the quantity of cups of coffee
      */
     int quantity = 0;
 
 
-        /**
-         * This method is called when the plus button is clicked.
-         */
+    /**
+     * This method is called when the plus button is clicked.
+     */
     public void increment(View view) {
         quantity = quantity + 1;
         displayQuantity(quantity);
@@ -59,8 +60,15 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return total price
      */
-    private int calculatePrice() {
-        return quantity * 5;
+    private int calculatePrice(boolean hasWhippedCream, boolean hasChocolate) {
+        int basePrice = 5;
+        if (hasWhippedCream) {
+            basePrice += 1;
+        }
+        if (hasChocolate) {
+            basePrice += 2;
+        }
+        return quantity * (basePrice);
     }
 
     /**
@@ -68,10 +76,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         String name = nameField.getText().toString();
-        Log.v("MainActivity", name);
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         boolean hasChocolate = chocolateCheckBox.isChecked();
-        int price = calculatePrice();
+        int price = calculatePrice(hasWhippedCream, hasChocolate);
         displayMessage(createOrderSummary(name, price, hasWhippedCream, hasChocolate));
     }
 
