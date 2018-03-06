@@ -12,4 +12,5 @@
     <dimen name="text_margintop2">32dp</dimen>
     <dimen name="text_toppings_size">24sp</dimen>
     <dimen name="checkbox_paddingleft">24dp</dimen>
+    <dimen name="linear_layout_padding">16dp</dimen>
 </resources>

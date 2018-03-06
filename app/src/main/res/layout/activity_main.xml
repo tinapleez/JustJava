@@ -8,8 +8,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/coffee"
+        android:background="@drawable/darkcoffee"
         android:orientation="vertical"
+        android:paddingLeft="@dimen/linear_layout_padding"
         tools:context="com.example.android.justjava.MainActivity">
 
         <EditText
@@ -65,14 +66,14 @@
             android:textSize="@dimen/text_quantity_size" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
+                style="@style/MyCustomButton"
                 android:layout_width="@dimen/button_size"
                 android:layout_height="@dimen/button_size"
-                android:background="#f5f5dc"
                 android:onClick="decrement"
                 android:text="@string/button_text_minus" />
 
@@ -89,19 +90,19 @@
                 android:textSize="@dimen/text_number_size" />
 
             <Button
+                style="@style/MyCustomButton"
                 android:layout_width="@dimen/button_size"
                 android:layout_height="@dimen/button_size"
-                android:background="#f5f5dc"
                 android:onClick="increment"
                 android:text="@string/button_text_plus" />
 
         </LinearLayout>
 
         <Button
+            style="@style/MyCustomButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_margintop"
-            android:background="#f5f5dc"
             android:onClick="submitOrder"
             android:text="@string/button_text" />
 

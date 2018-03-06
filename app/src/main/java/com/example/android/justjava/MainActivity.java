@@ -32,11 +32,22 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView = findViewById(R.id.quantity_text_view);
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("quan", quantity);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        quantity = savedInstanceState.getInt("quan");
+    }
+
     /**
      * This is the declaration of the quantity of cups of coffee
      */
     int quantity = 2;
-
 
     /**
      * This method is called when the plus button is clicked.
