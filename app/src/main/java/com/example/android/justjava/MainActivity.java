@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -36,13 +37,19 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This is the declaration of the quantity of cups of coffee
      */
-    int quantity = 0;
+    int quantity = 2;
 
 
     /**
      * This method is called when the plus button is clicked.
      */
     public void increment(View view) {
+        if (quantity == 100) {
+            // Display Toast if person tries to go above 100
+            Toast.makeText(getApplicationContext(), "You cannot order more than 100 cups of coffee.",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
         quantity = quantity + 1;
         displayQuantity(quantity);
     }
@@ -51,6 +58,12 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the minus button is clicked.
      */
     public void decrement(View view) {
+        if (quantity == 1) {
+            // Display Toast if person tries to go below 1 cup of coffee
+            Toast.makeText(getApplicationContext(), "You cannot order less than 1 cup of coffee.",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
         quantity = quantity - 1;
         displayQuantity(quantity);
     }
