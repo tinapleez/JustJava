@@ -1,5 +1,7 @@
 package com.example.android.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         nameField = findViewById(R.id.name_field);
-        whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        whippedCreamCheckBox = findViewById(R.id.whipped_cream_checkbox);
         chocolateCheckBox = findViewById(R.id.chocolate_checkbox);
-        quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        quantityTextView = findViewById(R.id.quantity_text_view);
+        orderSummaryTextView = findViewById(R.id.order_summary_text_view);
 
     }
 
@@ -85,14 +87,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the order button is clicked.
+     * This method is called when the order button is clicked, sends order to email.
      */
     public void submitOrder(View view) {
         String name = nameField.getText().toString();
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         boolean hasChocolate = chocolateCheckBox.isChecked();
         int price = calculatePrice(hasWhippedCream, hasChocolate);
-        displayMessage(createOrderSummary(name, price, hasWhippedCream, hasChocolate));
+//        displayMessage(createOrderSummary(name, price, hasWhippedCream, hasChocolate));
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, "JustJava order for " + name);
+        intent.putExtra(Intent.EXTRA_TEXT, "" + createOrderSummary(name, price, hasWhippedCream, hasChocolate));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     /**
