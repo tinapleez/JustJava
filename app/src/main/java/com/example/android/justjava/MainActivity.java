@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * This app displayQuantity an order form to order coffee.
+ * This app is an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view) {
         if (quantity == 100) {
             // Display Toast if person tries to go above 100
-            Toast.makeText(getApplicationContext(), "You cannot order more than 100 cups of coffee.",
+            Toast.makeText(getApplicationContext(), R.string.toast_more_than_100,
                     Toast.LENGTH_SHORT).show();
             return;
         }
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(View view) {
         if (quantity == 1) {
             // Display Toast if person tries to go below 1 cup of coffee
-            Toast.makeText(getApplicationContext(), "You cannot order less than 1 cup of coffee.",
+            Toast.makeText(getApplicationContext(), R.string.toast_less_than_1,
                     Toast.LENGTH_SHORT).show();
             return;
         }
@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Calculates the price of the order.
      *
+     * @param hasWhippedCream if user wants Whipped Cream
+     * @param hasChocolate if user wants Chocolate
      * @return total price
      */
     private int calculatePrice(boolean hasWhippedCream, boolean hasChocolate) {
@@ -81,18 +83,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the order button is clicked, sends order summary to email.
+     * This method is called when the order button is clicked, and sends order summary to email.
      */
     public void submitOrder(View view) {
         String name = nameField.getText().toString();
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         boolean hasChocolate = chocolateCheckBox.isChecked();
         int price = calculatePrice(hasWhippedCream, hasChocolate);
-//        displayMessage(createOrderSummary(name, price, hasWhippedCream, hasChocolate));
+        String priceMessage = createOrderSummary(name, price, hasWhippedCream, hasChocolate);
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_SUBJECT, "JustJava order for " + name);
-        intent.putExtra(Intent.EXTRA_TEXT, "" + createOrderSummary(name, price, hasWhippedCream, hasChocolate));
+        intent.putExtra(Intent.EXTRA_SUBJECT, String.format(getString(R.string.order_summary_email_subject), name));
+        intent.putExtra(Intent.EXTRA_TEXT, String.format("%s", priceMessage));
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
@@ -107,12 +109,17 @@ public class MainActivity extends AppCompatActivity {
      * @return text summary
      */
     private String createOrderSummary(String name, int price, boolean addWhippedCream, boolean addChocolate) {
-        String priceMessage = "Name: " + name;
-        priceMessage += "\nAdd Whipped Cream? " + addWhippedCream;
-        priceMessage += "\nAdd Chocolate? " + addChocolate;
-        priceMessage += "\nQuantity: " + quantity;
-        priceMessage += "\nTotal: $" + (price);
-        priceMessage += "\nThank you!";
+        String priceMessage = String.format(getString(R.string.name), name);
+        priceMessage += System.getProperty("line.separator");
+        priceMessage += String.format(getString(R.string.whipped_cream), addWhippedCream);
+        priceMessage += System.getProperty("line.separator");
+        priceMessage += String.format(getString(R.string.chocolate), addChocolate);
+        priceMessage += System.getProperty("line.separator");
+        priceMessage += String.format(getString(R.string.quantity), quantity);
+        priceMessage += System.getProperty("line.separator");
+        priceMessage += String.format(getString(R.string.order_summary_price), price);
+        priceMessage += System.getProperty("line.separator");
+        priceMessage += getString(R.string.thank_you);
         return priceMessage;
     }
 
@@ -120,6 +127,6 @@ public class MainActivity extends AppCompatActivity {
      * This method displayQuantity the given quantity value on the screen.
      */
     private void displayQuantity(int quantity) {
-        quantityTextView.setText("" + quantity);
+        quantityTextView.setText(String.valueOf(quantity));
     }
 }

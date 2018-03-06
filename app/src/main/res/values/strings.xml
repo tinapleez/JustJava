@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
     <string name="text_quantity">Quantity</string>
     <string name="text_number">2</string>
@@ -11,4 +11,13 @@
     <string name="text_toppings">toppings</string>
     <string name="checkbox_chocolate">Chocolate</string>
     <string name="edit_name">Name</string>
+    <string name="toast_more_than_100">You cannot order more than 100 cups of coffee.</string>
+    <string name="toast_less_than_1">You cannot order less than 1 cup of coffee.</string>
+    <string name="order_summary_email_subject">JustJava order for %s</string>
+    <string name="name">Name: %s</string>
+    <string name="whipped_cream">Add Whipped Cream? <xliff:g id="addWhippedCream" example="true">%b</xliff:g></string>
+    <string name="chocolate">Add Chocolate? <xliff:g id="addChocolate" example="true">%b</xliff:g></string>
+    <string name="quantity">Quantity: %d</string>
+    <string name="order_summary_price">Total: $%d</string>
+    <string name="thank_you">Thank you!</string>
 </resources>
