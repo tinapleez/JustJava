@@ -4,14 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.text.NumberFormat;
 
 /**
  * This app displayQuantity an order form to order coffee.
@@ -19,7 +16,6 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     private TextView quantityTextView;
-    private TextView orderSummaryTextView;
     private CheckBox whippedCreamCheckBox;
     private CheckBox chocolateCheckBox;
     private EditText nameField;
@@ -32,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
         whippedCreamCheckBox = findViewById(R.id.whipped_cream_checkbox);
         chocolateCheckBox = findViewById(R.id.chocolate_checkbox);
         quantityTextView = findViewById(R.id.quantity_text_view);
-        orderSummaryTextView = findViewById(R.id.order_summary_text_view);
-
     }
 
     /**
@@ -87,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the order button is clicked, sends order to email.
+     * This method is called when the order button is clicked, sends order summary to email.
      */
     public void submitOrder(View view) {
         String name = nameField.getText().toString();
@@ -127,12 +121,5 @@ public class MainActivity extends AppCompatActivity {
      */
     private void displayQuantity(int quantity) {
         quantityTextView.setText("" + quantity);
-    }
-
-    /**
-     * This method displayQuantity the given text on the screen.
-     */
-    private void displayMessage(String message) {
-        orderSummaryTextView.setText(message);
     }
 }

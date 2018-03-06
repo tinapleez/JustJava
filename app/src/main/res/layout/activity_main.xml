@@ -38,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/checkbox_paddingleft"
+            android:paddingStart="@dimen/checkbox_paddingleft"
             android:text="@string/checkbox_whipped_cream"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@android:color/white"
@@ -48,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/checkbox_paddingleft"
+            android:paddingStart="@dimen/checkbox_paddingleft"
             android:text="@string/checkbox_chocolate"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
@@ -95,20 +97,10 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/order_summary_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_marginbottom"
-            android:layout_marginTop="@dimen/text_margintop2"
-            android:text="@string/text_order_summary"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/text_order_summary" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margintop"
             android:background="#f5f5dc"
             android:onClick="submitOrder"
             android:text="@string/button_text" />
