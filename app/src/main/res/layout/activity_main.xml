@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/darkcoffee"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/linear_layout_padding"
+        android:padding="@dimen/linear_layout_padding"
         tools:context="com.example.android.justjava.MainActivity">
 
         <EditText
