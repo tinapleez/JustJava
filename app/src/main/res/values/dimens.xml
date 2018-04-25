@@ -23,12 +23,10 @@
     <dimen name="button_size">48dp</dimen>
     <dimen name="text_paddingright">12dp</dimen>
     <dimen name="text_paddingleft">12dp</dimen>
-    <dimen name="text_quantity_size">24sp</dimen>
     <dimen name="text_number_size">32sp</dimen>
     <dimen name="text_total_price">32sp</dimen>
     <dimen name="text_order_summary">24sp</dimen>
     <dimen name="text_margintop2">32dp</dimen>
-    <dimen name="text_toppings_size">24sp</dimen>
     <dimen name="checkbox_paddingleft">24dp</dimen>
     <dimen name="linear_layout_padding">16dp</dimen>
 </resources>

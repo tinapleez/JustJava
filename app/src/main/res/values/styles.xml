@@ -29,10 +29,12 @@
         <item name="colorControlActivated">@android:color/white</item>
     </style>
 
+    <!-- Order button style -->
     <style name="MyCustomButton" parent="android:Widget.Button">
         <item name="android:background">@drawable/beige_nine_patch</item>
     </style>
 
+    <!-- Style for headers Toppings and Quantity -->
     <style name="HeaderTextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">48dp</item>
